@@ -275,44 +275,27 @@ class PhieuNhapHang(tk.Frame):
         cur = conn.cursor()
         tree=self.tree
         selected=tree.focus()
+        if not selected:
+            messagebox.showwarning("Chưa chọn", "Hãy chọn phiếu nhập hàng để xóa")
+            return
         sql_trangthai="select trangthai from phieunhaphang where sophieunhaphang=?"
         maphieu=self.entry_maphieu.get()
         cur.execute(sql_trangthai,(maphieu,))
         trangthai_result=cur.fetchone()
         trangthai=trangthai_result[0] if trangthai_result else None
         if trangthai=="Đã duyệt":
-            today=datetime.now().date()
-            ngaynhap_full=tree.item(selected)["values"][8]
-            ngaynhap_date=ngaynhap_full.split()[0]
-            ngaynhap=datetime.strptime(ngaynhap_date,'%Y-%m-%d').date()
-            if today != ngaynhap:
-                messagebox.showinfo("Thông báo","Chỉ có thể xóa phiếu nhập đã duyệt trong ngày!")
+                messagebox.showinfo("Thông báo","Phiếu nhập đã duyệt không thể xóa!")
                 return
-            r=messagebox.askyesno("Thông báo","Thao tác xóa đồng nghĩa với việc phiếu nhập hàng này sẽ bị hủy. Bạn có thật sự muốn xóa?")
-            if r==False:
-                return
+        r=messagebox.askyesno("Thông báo","Thao tác xóa đồng nghĩa với việc phiếu nhập hàng này sẽ bị hủy. Bạn có thật sự muốn xóa?")
+        if r==False:
+            return
         xacnhan=x.XacNhan(self.parent)
         result=xacnhan.show()
         if not xacnhan:
             return
-        tree=self.tree
-        selected = tree.selection()
-        if not selected:
-            messagebox.showwarning("Chưa chọn", "Hãy chọn phiếu nhập hàng để xóa")
-            return
         maphieu= tree.item(selected)["values"][1]
         conn = connect_db()
         cur = conn.cursor()
-        cur.execute("UPDATE thuoc"
-                    +" SET SoLuongTon = SoLuongTon - ("
-                    +" SELECT ct.SoLuong"
-                    +" FROM chitietphieunhaphang ct"
-                    +" WHERE ct.MaThuoc = thuoc.MaThuoc"
-                    +" AND ct.SoPhieuNhapHang = ?)"
-                    +" WHERE MaThuoc IN ("
-                    +" SELECT DISTINCT MaThuoc"
-                    +" FROM chitietphieunhaphang"
-                    +" WHERE SoPhieunhapHang = ?);",(maphieu,maphieu,))
         cur.execute("DELETE FROM chitietphieunhaphang WHERE SoPhieunhaphang=?", (maphieu,))
         cur.execute("DELETE FROM phieunhaphang WHERE SoPhieunhaphang=?", (maphieu,))
         conn.commit() 
