@@ -166,8 +166,7 @@ class DonViTinh(tk.Toplevel):
         if ma_dvt == "" or ten_dvt == "":
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
-        tree.item(selected, values=(
-        ma_dvt, ten_dvt))
+        tree.item(selected, values=( ma_dvt, ten_dvt))
     def luu_dvt(self):
         tree=self.tree
         ma_dvt = self.entry_MaDVT.get()
@@ -178,7 +177,7 @@ class DonViTinh(tk.Toplevel):
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
         cur.execute("UPDATE DonViTinh SET tendonvi=? WHERE madvt=?",
-        (ma_dvt, ten_dvt))
+        (ten_dvt, ma_dvt))
         conn.commit()
         conn.close()
     def huy_input(self):

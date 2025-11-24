@@ -175,7 +175,7 @@ class LoaiThuoc(tk.Toplevel):
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
         cur.execute("UPDATE LoaiThuoc SET tenloaithuoc=? WHERE malt=?",
-        (ma_lt, ten_lt))
+        (ten_lt, ma_lt))
         conn.commit()
         conn.close()
     def huy_input(self):
