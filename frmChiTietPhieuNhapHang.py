@@ -103,7 +103,7 @@ class CTPNH(tk.Toplevel):
         for col in columns:
             tree.heading(col, text=col.capitalize())
         tree.column("STT", width=30, anchor="center")
-        tree.column("Mã phiếu", width=30, anchor="center")
+        tree.column("Mã phiếu", width=40, anchor="center")
         tree.column("Mã thuốc", width=50, anchor="center")
         tree.column("Tên thuốc", width=100, anchor="center")
         tree.column("Số lượng", width=50, anchor="center")
@@ -253,6 +253,7 @@ class CTPNH(tk.Toplevel):
             tongtien=tongtien + tree.item(i)["values"][7]
         self.entry_tongtien.delete(0,tk.END)
         self.entry_tongtien.insert(0,tongtien)
+        self.Luu()
     def Luu(self):
         tree = self.tree
         conn = connect_db()
@@ -263,7 +264,7 @@ class CTPNH(tk.Toplevel):
             mathuoc=tree.item(i)["values"][2]
             soluong=tree.item(i)["values"][4]
             thanhtien=tree.item(i)["values"][7]
-            cur.execute("UPDATE chitietphieumuahang SET soluong=?,stt=?, thanhtien=?  WHERE sophieumuahang=? and mathuoc=?",
+            cur.execute("UPDATE chitietphieunhaphang SET soluong=?,stt=?, thanhtien=?  WHERE sophieunhaphang=? and mathuoc=?",
                 (soluong,stt,thanhtien,maphieu,mathuoc))
         conn.commit()
         tongtien=int(self.entry_tongtien.get())
