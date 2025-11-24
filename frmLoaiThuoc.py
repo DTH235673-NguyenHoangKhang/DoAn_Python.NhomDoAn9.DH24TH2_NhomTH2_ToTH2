@@ -150,6 +150,9 @@ class LoaiThuoc(tk.Toplevel):
     def sua_lt(self):
         tree=self.tree
         selected = tree.focus()
+        values = tree.item(selected)["values"]
+        ma_lt = self.entry_MaLT.get()
+        ten_lt = self.entry_TenLT.get()
         if not selected:
             messagebox.showwarning("Chưa chọn", "Hãy chọn loại thuốc để sửa")
             return
@@ -160,9 +163,6 @@ class LoaiThuoc(tk.Toplevel):
         if ma_lt == "" or ten_lt == "":
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
-        values = tree.item(selected)["values"]
-        ma_lt = self.entry_MaLT.get()
-        ten_lt = self.entry_TenLT.get()
         tree.item(selected, values=(
         ma_lt, ten_lt))
     def luu_lt(self):

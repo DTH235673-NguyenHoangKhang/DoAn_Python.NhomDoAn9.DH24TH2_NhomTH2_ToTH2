@@ -153,6 +153,9 @@ class DonViTinh(tk.Toplevel):
     def sua_dvt(self):
         tree=self.tree
         selected = tree.focus()
+        values = tree.item(selected)["values"]
+        ma_dvt = self.entry_MaDVT.get()
+        ten_dvt = self.entry_TenDVT.get()
         if not selected:
             messagebox.showwarning("Chưa chọn", "Hãy chọn đơn vị tính để sửa")
             return
@@ -163,9 +166,6 @@ class DonViTinh(tk.Toplevel):
         if ma_dvt == "" or ten_dvt == "":
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
-        values = tree.item(selected)["values"]
-        ma_dvt = self.entry_MaDVT.get()
-        ten_dvt = self.entry_TenDVT.get()
         tree.item(selected, values=(
         ma_dvt, ten_dvt))
     def luu_dvt(self):
