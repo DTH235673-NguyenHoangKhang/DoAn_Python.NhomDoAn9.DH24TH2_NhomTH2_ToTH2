@@ -155,7 +155,6 @@ class PhieuMuaHang(tk.Frame):
             return
         tree.delete(id)
         new_id = tree.insert("", 0, values=value)
-            
         tree.selection_remove(tree.selection()) 
         tree.selection_add(new_id)             
         tree.see(new_id)                                

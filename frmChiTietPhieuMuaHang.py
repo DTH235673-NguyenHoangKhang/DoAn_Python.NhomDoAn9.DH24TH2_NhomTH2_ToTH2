@@ -295,7 +295,7 @@ class CTPMH(tk.Toplevel):
         tree.item(selected, values=(stt,maphieu, mathuoc, tenthuoc,soluong,donvi, giaban, giamgia, thanhtien))
         tongtien=0
         for i in tree.get_children():
-            tongtien=tongtien + tree.item(i)["values"][8]
+            tongtien=tongtien + float(tree.item(i)["values"][8])
         self.entry_tongtien.delete(0,tk.END)
         self.entry_tongtien.insert(0,tongtien)
     def Luu(self):
@@ -308,7 +308,7 @@ class CTPMH(tk.Toplevel):
             mathuoc=tree.item(i)["values"][2]
             soluong=tree.item(i)["values"][4]
             giamgia=tree.item(i)["values"][7]
-            thanhtien=tree.item(i)["values"][8]
+            thanhtien=float(tree.item(i)["values"][8])
             cur.execute("UPDATE chitietphieumuahang SET soluong=?, giamgia=?, thanhtien=?,stt=?  WHERE sophieumuahang=? and mathuoc=?",
                 (soluong,giamgia,thanhtien,stt,maphieu,mathuoc))
         conn.commit()
