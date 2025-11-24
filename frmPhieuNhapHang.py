@@ -305,6 +305,7 @@ class PhieuNhapHang(tk.Frame):
         conn.close()
         self.load_data()
         self.Luu()
+        
     def Sua(self):
         conn = connect_db()
         cur = conn.cursor()
