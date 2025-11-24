@@ -65,6 +65,7 @@ Giao diện	Tkinter
 Cơ sở dữ liệu	SQL Server
 Kết nối DB	pyodbc
 In & xuất PDF	ReportLab
+
 👥 Nhóm Phát triển
 Dự án được thực hiện bởi nhóm 9 thuộc lớp DH24TH2_Nhóm 2_Tổ 2.
 DTH235673-Nguyễn Hoàng Khang
