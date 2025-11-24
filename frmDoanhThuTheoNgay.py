@@ -127,4 +127,5 @@ class DoanhThuTheoNgay(tk.Frame):
         self.entry_loinhuan.insert(0,loinhuan)
         conn.close()
 
+
         

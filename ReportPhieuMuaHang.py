@@ -85,3 +85,4 @@ def export_to_pdf(sophieu, ngaylap,tennv, tenkh, diachi, sdt, tongtien, items):
     except Exception as e:
         messagebox.showerror("Lỗi Xuất PDF", f"Không thể tạo file PDF: {e}")
         return None
+    

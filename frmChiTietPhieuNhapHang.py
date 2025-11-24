@@ -93,7 +93,6 @@ class CTPNH(tk.Toplevel):
         self.entry_tongtien=tk.Entry(frame_chucnang,width=20)
         self.entry_tongtien.grid(row=0,column=1,padx=5,pady=5,sticky="w")
         self.entry_tongtien.insert(0,0)
-
         btnThanhToan=tk.Button(frame_chucnang,text="Xuất phiếu nhập",width=20,command=self.XuatPhieuNhap).grid(row=0,column=2,padx=10,pady=5)
   
         lbl_ds = tk.Label(self, text="Danh sách thuốc nông dược", font=("Arial", 10, "bold"))
@@ -340,3 +339,4 @@ class CTPNH(tk.Toplevel):
         conn.commit()
         conn.close()
         self.destroy()
+        

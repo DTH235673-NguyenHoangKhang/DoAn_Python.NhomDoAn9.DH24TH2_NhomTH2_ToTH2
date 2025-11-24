@@ -54,4 +54,3 @@ class XacNhan(tk.Toplevel):
     def show(self):
         self.parent.wait_window(self)
         return self.result
-

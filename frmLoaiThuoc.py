@@ -182,4 +182,5 @@ class LoaiThuoc(tk.Toplevel):
         self.entry_MaLT.config(state="normal")
         self.entry_MaLT.delete(0, tk.END)
         self.entry_TenLT.delete(0, tk.END)
+        
 

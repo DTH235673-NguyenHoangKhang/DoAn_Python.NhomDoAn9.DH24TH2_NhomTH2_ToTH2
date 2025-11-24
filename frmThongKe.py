@@ -101,5 +101,3 @@ class ThongKe(tk.Frame):
         self.entry_max.insert(0,max_ten)
         self.entry_min.insert(0,min_ten)
         conn.close()
-
-        

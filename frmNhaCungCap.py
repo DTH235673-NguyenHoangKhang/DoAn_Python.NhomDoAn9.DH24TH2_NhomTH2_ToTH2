@@ -242,4 +242,5 @@ class NhaCungCap(tk.Toplevel):
         self.entry_DiaChi.delete(0, tk.END)
         self.entry_SDTtimkiem.delete(0,tk.END)
         self.load_data()
+        
          

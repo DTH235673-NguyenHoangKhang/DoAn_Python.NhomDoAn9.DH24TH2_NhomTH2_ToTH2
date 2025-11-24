@@ -185,4 +185,5 @@ class DonViTinh(tk.Toplevel):
         self.entry_MaDVT.config(state="normal")
         self.entry_MaDVT.delete(0, tk.END)
         self.entry_TenDVT.delete(0, tk.END)
+        
 

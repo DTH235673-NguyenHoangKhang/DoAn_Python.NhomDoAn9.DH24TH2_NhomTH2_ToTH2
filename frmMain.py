@@ -103,6 +103,7 @@ class Main(tk.Tk):
         chi_tiet_window.grab_set()
         self.wait_window(chi_tiet_window)
         
+        
 
 
     

@@ -423,7 +423,3 @@ class Thuoc(tk.Frame):
         messagebox.showinfo("Thông báo","Lưu thành công")
     def Thoat(self):
         self.quit()
-    
-        
-        
-

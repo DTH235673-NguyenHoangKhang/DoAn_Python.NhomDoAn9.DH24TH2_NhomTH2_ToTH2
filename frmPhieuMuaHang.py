@@ -481,5 +481,3 @@ class PhieuMuaHang(tk.Frame):
                 messagebox.showwarning("Cảnh báo", "Không thể mở bản xem trước PDF.")
         except Exception as e:
             messagebox.showerror("Lỗi In/PDF", f"Lỗi khi mở bản xem trước: {e}")
-
-       
