@@ -197,8 +197,7 @@ class KhachHang(tk.Toplevel):
             if isinstance(ngay_giao_dich_gannhat, datetime):
                 ngay_giao_dich_gannhat = ngay_giao_dich_gannhat.date() 
             if ngay_giao_dich_gannhat > ngay_gioi_han:
-                messagebox.showwarning("""Không thể xóa", f"Khách hàng có giao dịch gần nhất vào ngày: 
-                {ngay_giao_dich_gannhat}. Phải hơn 6 tháng (180 ngày) không phát sinh giao dịch mới có thể xóa.""")
+                messagebox.showwarning("Không thể xóa", f"Khách hàng có giao dịch gần nhất vào ngày: {ngay_giao_dich_gannhat}. Phải hơn 6 tháng (180 ngày) không phát sinh giao dịch mới có thể xóa.")
                 return
         cur.execute("update KhachHang set tinhtrang=0 WHERE MaKH=?", (ma_kh,))
         conn.commit() 
@@ -211,7 +210,7 @@ class KhachHang(tk.Toplevel):
         ma_kh = self.entry_MaKH.get()
         ten_kh = self.entry_TenKH.get()
         diachi_kh = self.entry_DiaChi.get()
-        sdt_kh = self.entry_SDT.get()
+        sdt_kh = self.entry_SDT.get().strip()
         if not selected:
             messagebox.showwarning("Chưa chọn", "Hãy chọn khách hàng để sửa")
             return

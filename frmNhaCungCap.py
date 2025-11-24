@@ -149,6 +149,10 @@ class NhaCungCap(tk.Toplevel):
             if not ma_ncc[i].isdigit(): 
                 messagebox.showinfo("Thông báo","Sai định dạng mã nhà cung cấp (NCC00)")
                 return
+        for i in sdt:
+            if sdt[i].isdigit()==False:
+                messagebox.showinfo("Thông báo","Sai định dạng số điện thoại!")
+                return 
         cur.execute("select tinhtrang from nhacungcap where manhacungcap=?",(ma_ncc,))
         result=cur.fetchone()
         if result:
@@ -202,7 +206,7 @@ class NhaCungCap(tk.Toplevel):
         ma_ncc = self.entry_MaNCC.get()
         ten_ncc = self.entry_TenNCC.get()
         diachi_ncc = self.entry_DiaChi.get()
-        sdt = self.entry_SDT.get()
+        sdt = self.entry_SDT.get().strip()
         if not selected:
             messagebox.showwarning("Chưa chọn", "Hãy chọn nhà cung cấp để sửa")
             return

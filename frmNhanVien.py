@@ -164,7 +164,7 @@ class NhanVien(tk.Toplevel):
                 messagebox.showwarning("Trùng mã", "Mã nhân viên đã tồn tại")
                 return
             elif t==0:
-                cur.execute("update nhanvien set tinhtrang=1,tenv=?,diachinv=?,sodienthoai=? where manv=?",
+                cur.execute("update nhanvien set tinhtrang=1,tennv=?,diachinv=?,sodienthoai=? where manv=?",
                             (ten_nv,diachi_nv,sdt_nv,ma_nv,))
                 conn.commit()
                 self.load_data()                
@@ -221,7 +221,7 @@ class NhanVien(tk.Toplevel):
         ma_nv = self.entry_MaNV.get()
         ten_nv = self.entry_TenNV.get()
         diachi_nv = self.entry_DiaChi.get()
-        sdt_nv = self.entry_SDT.get()
+        sdt_nv = self.entry_SDT.get().strip()
         if not selected:
             messagebox.showwarning("Chưa chọn", "Hãy chọn nhân viên để sửa")
             return
@@ -232,6 +232,10 @@ class NhanVien(tk.Toplevel):
         if ma_nv == "" or ten_nv == "" or diachi_nv == "" or sdt_nv =="" :
             messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
             return
+        for i in sdt_nv:
+            if ord(i)<48 or ord(i)>57:
+                messagebox.showinfo("Thông báo","Sai định dạng số điện thoại!")
+                return 
         values = tree.item(selected)["values"]
         tree.item(selected, values=(
         ma_nv, ten_nv, diachi_nv, sdt_nv))
