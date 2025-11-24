@@ -4,7 +4,7 @@
 
 ## 💡 Giới Thiệu (Introduction)
 
-**Tên ứng dụng:** Xây Dựng Ứng Dụng Quản Lý Cửa Hàng Mua Bán Thuốc Nông Dược.
+**Tên ứng dụng:** Quản Lý Cửa Hàng Mua Bán Thuốc Nông Dược.
 
 Ứng dụng được xây dựng nhằm cung cấp một giải pháp quản lý toàn diện, hiện đại hóa quy trình kinh doanh cho các cửa hàng mua bán thuốc nông dược vừa và nhỏ.
 
