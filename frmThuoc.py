@@ -289,10 +289,6 @@ class Thuoc(tk.Frame):
             messagebox.showerror("Lỗi", str(e))
         conn.close()   
     def xoa_thuoc(self):
-        xacnhan=x.XacNhan(self.parent)
-        result=xacnhan.show()
-        if not xacnhan:
-            return
         tree=self.tree
         selected = tree.selection()
         if not selected:
@@ -348,10 +344,6 @@ class Thuoc(tk.Frame):
         if not selected:
             messagebox.showwarning("Chưa chọn", "Hãy chọn thuoc để sửa")
             return
-        xacnhan=x.XacNhan(self.parent)
-        result=xacnhan.show()
-        if not xacnhan:
-            return
         values = self.tree.item(selected, "values")
         if not values:
             messagebox.showerror("Lỗi", "Không thể lấy dữ liệu từ dòng đã chọn.")
@@ -383,7 +375,7 @@ class Thuoc(tk.Frame):
         if not soluongton.isdigit(): 
                 messagebox.showinfo("Thông báo","Số lượng tồn phải là 1 số và lớn hơn 0")
                 return
-        elif int(soluongton)<=0:
+        elif int(soluongton)<0:
                 messagebox.showinfo("Thông báo","Số lượng tồn phải là 1 số và lớn hơn 0")
                 return
         if int(giaban)<int(gianhap):
