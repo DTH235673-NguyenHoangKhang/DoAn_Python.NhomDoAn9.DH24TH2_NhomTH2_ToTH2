@@ -1,4 +1,4 @@
-#📘 QUẢN LÝ CỬA HÀNG BÁN THUỐC – PYTHON TKINTER & SQL SERVER
+📘 QUẢN LÝ CỬA HÀNG BÁN THUỐC – PYTHON TKINTER & SQL SERVER
 
 Ứng dụng Quản lý bán thuốc được xây dựng bằng Python (Tkinter) và SQL Server, hỗ trợ các chức năng quản lý nhập hàng, bán hàng, thống kê và quản lý thuốc trong cửa hàng.
 
@@ -59,13 +59,13 @@ Các chức năng phân chia theo từng Tab giúp thao tác nhanh.
 
 Có hình nền trang chủ.
 
-#🏗 Công nghệ sử dụng
+🏗 Công nghệ sử dụng
 Ngôn ngữ	Python
 Giao diện	Tkinter
 Cơ sở dữ liệu	SQL Server
 Kết nối DB	pyodbc
 In & xuất PDF	ReportLab
-#👥 Nhóm Phát triển
+👥 Nhóm Phát triển
 Dự án được thực hiện bởi nhóm 9 thuộc lớp DH24TH2_Nhóm 2_Tổ 2.
 DTH235673-Nguyễn Hoàng Khang
 DTH235722-Nguyễn Thị Huỳnh Như
