@@ -259,7 +259,7 @@ class Thuoc(tk.Frame):
         elif int(soluongton)<=0:
                 messagebox.showinfo("Thông báo","Số lượng tồn phải là 1 số và lớn hơn 0")
                 return
-        if int(giaban)<int(gianhap):
+        if int(giaban)<=int(gianhap):
             messagebox.showinfo("Thông báo","Giá bán phải lớn hơn giá nhập!")
             return  
         conn = connect_db()
