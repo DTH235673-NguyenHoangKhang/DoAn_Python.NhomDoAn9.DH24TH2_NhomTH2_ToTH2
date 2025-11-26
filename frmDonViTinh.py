@@ -107,7 +107,7 @@ class DonViTinh(tk.Toplevel):
         if ma_dvt == "" or ten_dvt == "":
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
-        if ma_dvt[0]!='D' or ma_dvt[1]!='V' or ma_dvt[2]!='t' or len(ma_dvt)!=5:
+        if ma_dvt[0]!='D' or ma_dvt[1]!='V' or ma_dvt[2]!='T' or len(ma_dvt)!=5:
                 messagebox.showinfo("Thông báo","Sai định dạng mã đơn vị tính (DVT00)")
                 return
         for i in range(3, len(ma_dvt)):

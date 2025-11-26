@@ -104,12 +104,12 @@ class LoaiThuoc(tk.Toplevel):
         if ma_lt == "" or ten_lt == "":
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
-        if ma_lt[0]!='L' or ma_lt[1]!='T' or len(ma_lt)!=4:
-                messagebox.showinfo("Thông báo","Sai định dạng mã loại thuốc (LT00)")
+        if ma_lt[0]!='L' or ma_lt[1]!='o' or ma_lt[2]!='a' or ma_lt[3]!='i' or len(ma_lt)!=5:
+                messagebox.showinfo("Thông báo","Sai định dạng mã loại thuốc (Loai0)")
                 return
-        for i in range(2, len(ma_lt)):
+        for i in range(4, len(ma_lt)):
             if not ma_lt[i].isdigit(): 
-                messagebox.showinfo("Thông báo","Sai định dạng mã loại thuốc (LT00)")
+                messagebox.showinfo("Thông báo","Sai định dạng mã loại thuốc (Loai0)")
                 return
         for i in tree.get_children():
             if ma_lt == tree.item(i)["values"][0]:

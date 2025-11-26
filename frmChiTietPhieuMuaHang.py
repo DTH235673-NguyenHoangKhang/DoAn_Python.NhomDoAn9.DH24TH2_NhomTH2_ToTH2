@@ -190,15 +190,15 @@ class CTPMH(tk.Toplevel):
             if  mathuoc==str(tree.item(i)["values"][2]):
                 messagebox.showwarning("Trùng mã", "Thuôc nông dược đã có trong đơn hàng")
                 return
-        for i in len(soluong):
-            if not soluong[i].isdigit():
+        for i in soluong:
+            if ord(i)<48 or ord(i)>57:
                 messagebox.showinfo("Số lượng chỉ được nhập số")
                 return
         if int(soluongton)<int(soluong):
                 messagebox.showinfo("Thông báo",tenthuoc+" không đủ số lượng")
                 return
-        for i in len(giamgia):
-            if not giamgia[i].isdigit():
+        for i in giamgia:
+            if ord(i)<48 or ord(i)>57:
                 messagebox.showinfo("Giảm giá chỉ được nhập số")
                 return
         if int(giamgia)<0 or int(giamgia)>50:

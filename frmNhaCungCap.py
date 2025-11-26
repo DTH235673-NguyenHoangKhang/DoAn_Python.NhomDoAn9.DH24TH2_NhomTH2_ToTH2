@@ -150,7 +150,7 @@ class NhaCungCap(tk.Toplevel):
                 messagebox.showinfo("Thông báo","Sai định dạng mã nhà cung cấp (NCC00)")
                 return
         for i in sdt:
-            if sdt[i].isdigit()==False:
+            if ord(i)<48 or ord(i)>57:
                 messagebox.showinfo("Thông báo","Sai định dạng số điện thoại!")
                 return 
         cur.execute("select tinhtrang from nhacungcap where manhacungcap=?",(ma_ncc,))

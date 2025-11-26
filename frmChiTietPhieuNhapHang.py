@@ -176,8 +176,8 @@ class CTPNH(tk.Toplevel):
         if loaithuoc == "" or mathuoc == "" or tenthuoc== "" or gianhap=="" or soluong=="" or donvi=="":
                 messagebox.showwarning("Thiếu dữ liệu", "Vui lòng nhập đủ thông tin")
                 return
-        for i in len(soluong):
-            if not soluong[i].isdigit():
+        for i in soluong:
+            if ord(i)<48 or ord(i)>57:
                 messagebox.showinfo("Số lượng chỉ được nhập số")
                 return
         thanhtien=int(gianhap)*int(soluong)

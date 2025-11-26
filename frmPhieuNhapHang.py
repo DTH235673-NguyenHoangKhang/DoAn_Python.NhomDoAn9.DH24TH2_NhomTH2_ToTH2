@@ -137,7 +137,7 @@ class PhieuNhapHang(tk.Frame):
         tree=self.tree
         check=0
         for i in tree.get_children():
-            if int(matim)==tree.item(i)["values"][0]:
+            if int(matim)==tree.item(i)["values"][1]:
                 check=1
                 id=i
                 value=tree.item(i)["values"]
