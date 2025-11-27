@@ -238,7 +238,7 @@ class Thuoc(tk.Frame):
                 messagebox.showinfo("Thông báo","Sai định dạng mã thuốc (TND00)")
                 return
         for i in tree.get_children():
-            if mathuoc == tree.item(i)["values"][0]:
+            if mathuoc == tree.item(i)["values"][0].strip():
                 messagebox.showwarning("Trùng mã", "Mã thuốc đã tồn tại")
                 return
         if not giaban.isdigit(): 

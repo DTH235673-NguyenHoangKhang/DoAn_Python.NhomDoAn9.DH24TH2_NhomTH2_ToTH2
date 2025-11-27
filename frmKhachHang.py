@@ -137,7 +137,7 @@ class KhachHang(tk.Toplevel):
     def them_kh(self):
         conn = connect_db()
         cur = conn.cursor()
-        ma_kh = self.entry_MaKH.get()
+        ma_kh = self.entry_MaKH.get().strip()
         ten_kh = self.entry_TenKH.get()
         diachi_kh = self.entry_DiaChi.get()
         sdt_kh = self.entry_SDT.get()
@@ -152,7 +152,7 @@ class KhachHang(tk.Toplevel):
             if not ma_kh[i].isdigit(): 
                 messagebox.showinfo("Thông báo","Sai định dạng mã khách hàng (KH00)")
                 return
-        for i in sdt_kh:
+        for i in sdt_kh.strip():
             if ord(i)<48 or ord(i)>57:
                 messagebox.showinfo("Thông báo","Sai định dạng số điện thoại!")
                 return         

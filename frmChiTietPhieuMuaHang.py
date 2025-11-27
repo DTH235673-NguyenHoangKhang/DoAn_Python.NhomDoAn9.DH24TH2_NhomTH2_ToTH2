@@ -215,7 +215,7 @@ class CTPMH(tk.Toplevel):
         else:
             thanhtien=int(giaban)*int(soluong)
         tongtien=0
-        tongtien=int(self.entry_tongtien.get())+thanhtien
+        tongtien=float(self.entry_tongtien.get())+thanhtien
         self.entry_tongtien.delete(0,tk.END)
         self.entry_tongtien.insert(0,tongtien)
         try:
@@ -245,7 +245,7 @@ class CTPMH(tk.Toplevel):
         cur.execute(sql_update_stt, (maphieu, stt))
         conn.commit()
         thanhtien=tree.item(selected)["values"][8]
-        tongtien=int(self.entry_tongtien.get())-thanhtien
+        tongtien=float(self.entry_tongtien.get())-thanhtien
         self.entry_tongtien.delete(0,tk.END)
         self.entry_tongtien.insert(0,tongtien)
         messagebox.showinfo("Xóa thành công", "Đã xóa thuốc")
