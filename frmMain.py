@@ -33,7 +33,7 @@ class AnhNen(tk.Frame):
             pil_image = pil_image.resize((800, 600 ), Image.LANCZOS)
             self.bg_image = ImageTk.PhotoImage(pil_image)
             lbl_bg = tk.Label(self, image=self.bg_image)
-            lbl_bg.pack(fill="both", expand=True)
+            lbl_bg.pack(fill=tk.BOTH, expand=True)
       except Exception as e:
              messagebox.showwarning("Cảnh báo", f"Lỗi tải ảnh nền: {e}")
 class Main(tk.Tk):
@@ -81,6 +81,7 @@ class Main(tk.Tk):
             my_menu.entryconfig(5, state="disabled")
             my_menu.entryconfig(6, state="disabled")
             my_menu.entryconfig(7, state="disabled")
+        self.after(0,self.deiconify)
         self.mainloop()
     def showPage(self,page):
         if page == pmh.PhieuMuaHang:
@@ -101,9 +102,3 @@ class Main(tk.Tk):
         chi_tiet_window = taikhoan.TaoTaiKhoan()
         chi_tiet_window.grab_set()
         self.wait_window(chi_tiet_window)
-        
-        
-
-
-    
-

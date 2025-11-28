@@ -30,7 +30,7 @@ class DoanhThuTheoNgay(tk.Frame):
         btn=tk.Button(frame_info,text="Load",command=self.load_data).grid(row=0,column=3,padx=5,pady=5,sticky="w")
         btn1=tk.Button(frame_info,text="In báo cáo",command=self.In).grid(row=0,column=4,padx=5,pady=5,sticky="w")
 
-        columns = ("Tên thuốc", "Số lượng","Giá bán","Giá nhập" ,"Thành tiền", "COS")
+        columns = ("Tên thuốc", "Số lượng","Giá bán","Giá nhập" ,"Giảm giá","Thành tiền", "COS")
         self.tree = ttk.Treeview(self, columns=columns, show="headings", height=10)
         tree=self.tree
         for col in columns:
@@ -39,6 +39,7 @@ class DoanhThuTheoNgay(tk.Frame):
         tree.column("Số lượng", width=50, anchor="center")
         tree.column("Giá bán", width=50, anchor="center")
         tree.column("Giá nhập",width=50, anchor="center")
+        tree.column("Giảm giá",width=50, anchor="center")
         tree.column("Thành tiền",width=20,anchor="center")
         tree.column("COS", width=100, anchor="center")
         tree.pack(padx=10, pady=5, fill="both")
@@ -96,7 +97,7 @@ class DoanhThuTheoNgay(tk.Frame):
         tree=self.tree
         for i in tree.get_children():
             tree.delete(i)
-        sql_query = ("""SELECT t.TenThuoc,SUM(c.SoLuong) AS TongSoLuong,giaban,gianhap,SUM(c.ThanhTien) AS TongDoanhThu,
+        sql_query = ("""SELECT t.TenThuoc,SUM(c.SoLuong) AS TongSoLuong,giaban,gianhap,giamgia,SUM(c.ThanhTien) AS TongDoanhThu,
                      SUM(c.SoLuong * t.GiaNhap) AS TongCOS
                     FROM chitietphieumuahang c
                     JOIN
@@ -104,7 +105,7 @@ class DoanhThuTheoNgay(tk.Frame):
                     JOIN
                     thuoc t ON c.MaThuoc = t.MaThuoc
                     where ngaymuahang=?
-                    GROUP BY t.TenThuoc,t.GiaBan,t.GiaNhap;""")
+                    GROUP BY t.TenThuoc,t.GiaBan,t.GiaNhap,giamgia;""")
         dtp=self.dtp.get_date()
         cur.execute(sql_query,(dtp,))
         for row in cur.fetchall():
@@ -114,8 +115,8 @@ class DoanhThuTheoNgay(tk.Frame):
         cos=0
         loinhuan=0
         for i in tree.get_children():
-            doanhthu=doanhthu+float(tree.item(i)["values"][4])
-            cos=cos+int(tree.item(i)["values"][5])
+            doanhthu=doanhthu+float(tree.item(i)["values"][5])
+            cos=cos+int(tree.item(i)["values"][6])
         loinhuan=doanhthu-cos-doanhthu*0.08
         thue=doanhthu*0.08
         doanhthu=doanhthu-thue
