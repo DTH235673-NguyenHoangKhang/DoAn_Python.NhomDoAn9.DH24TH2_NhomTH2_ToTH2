@@ -81,7 +81,6 @@ class Main(tk.Tk):
             my_menu.entryconfig(5, state="disabled")
             my_menu.entryconfig(6, state="disabled")
             my_menu.entryconfig(7, state="disabled")
-        self.after(0,self.deiconify)
         self.mainloop()
     def showPage(self,page):
         if page == pmh.PhieuMuaHang:
